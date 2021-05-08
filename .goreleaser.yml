@@ -5,7 +5,7 @@ before:
   hooks:
     - go mod tidy
 builds:
-  - main: ./cmd/main.go
+  - main: ./cmd/ghs/main.go
     binary: git-bump
     ldflags:
       - -s -w
