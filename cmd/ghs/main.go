@@ -48,7 +48,7 @@ func main() {
 			os.Exit(-1)
 		}
 
-		fmt.Printf("PullRequest Url: %v", prUrl)
+		fmt.Printf("PullRequest Url: %v\n", prUrl)
 
 	case "diff":
 		diffCmd.Parse(os.Args[2:])
