@@ -38,14 +38,14 @@ func main() {
 
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "%s: %v\n", os.Args[0], err)
-			os.Exit(-1)
+			os.Exit(1)
 		}
 
 		prUrl, err := lib.CreatePullRequest(ctx, client, *prOwner, *prRepo, *prFrom, *prTo, title, body)
 
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "%s: %v\n", os.Args[0], err)
-			os.Exit(-1)
+			os.Exit(1)
 		}
 
 		fmt.Printf("PullRequest Url: %v\n", prUrl)
@@ -56,7 +56,7 @@ func main() {
 
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "%s: %v\n", os.Args[0], err)
-			os.Exit(-1)
+			os.Exit(1)
 		}
 
 		fmt.Println(title)
