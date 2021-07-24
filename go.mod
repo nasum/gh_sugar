@@ -1,6 +1,6 @@
 module github.com/nasum/gh_sugar
 
-go 1.14
+go 1.16
 
 require (
 	github.com/google/go-github/v35 v35.2.0
