@@ -25,6 +25,7 @@ func main() {
 		repo := cmd.String("repo", "", "repository")
 		from := cmd.String("from", "", "from branch")
 		to := cmd.String("to", "", "to branch")
+		yes := cmd.Bool("yes", false, "yes")
 		cmd.Parse(os.Args[2:])
 
 		title, body, err := lib.BranchDiff(ctx, client, *owner, *repo, *from, *to)
@@ -34,15 +35,19 @@ func main() {
 			os.Exit(1)
 		}
 
-		url, err := lib.CreatePullRequest(ctx, client, *owner, *repo, *from, *to, title, body)
+		fmt.Println(title)
+		fmt.Println(body)
+
+		url, err := lib.CreatePullRequest(ctx, client, *yes, *owner, *repo, *from, *to, title, body)
 
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "%s: %v\n", os.Args[0], err)
 			os.Exit(1)
 		}
 
-		fmt.Printf("PullRequest Url: %v\n", url)
-
+		if url != "" {
+			fmt.Printf("PullRequest Url: %v\n", url)
+		}
 	case "diff":
 		cmd := flag.NewFlagSet("diff", flag.ExitOnError)
 		owner := cmd.String("owner", "", "owner name")
