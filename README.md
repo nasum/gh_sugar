@@ -18,6 +18,8 @@ Usage of pr:
         repository
   -to string
         to branch
+  -yes
+        yes
 ```
 
 ### diff
