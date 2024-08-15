@@ -19,3 +19,21 @@ Usage of diff:
   -to string
         to branch
 ```
+
+### count_pr
+
+Count PullRequest number for repository
+
+```bash
+Usage of count_pr:
+  -from string
+        from date
+  -owner string
+        owner name
+  -repo string
+        repository
+  -to string
+        to date
+  -target string
+        target user name
+```
