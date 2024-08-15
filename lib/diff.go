@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/google/go-github/v35/github"
+	"github.com/google/go-github/v63/github"
 )
 
 type PullRequest struct {
@@ -22,7 +22,7 @@ func (pr *PullRequest) ToString() string {
 }
 
 func BranchDiff(ctx context.Context, client *github.Client, owner, repo, from, to string) (string, string, error) {
-	comp, _, err := client.Repositories.CompareCommits(ctx, owner, repo, to, from)
+	comp, _, err := client.Repositories.CompareCommits(ctx, owner, repo, to, from, nil)
 
 	if err != nil {
 		return "", "", fmt.Errorf("BranchDiff github.Client.Repositories.CompareCommits: %v", err)
