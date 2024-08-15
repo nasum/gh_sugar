@@ -19,6 +19,22 @@ func main() {
 	}
 
 	switch os.Args[1] {
+	case "count_pr":
+		cmd := flag.NewFlagSet("count_pr", flag.ExitOnError)
+		owner := cmd.String("owner", "", "owner name")
+		repo := cmd.String("repo", "", "repository")
+		from := cmd.String("from", "", "from date")
+		to := cmd.String("to", "", "to date")
+		targetName := cmd.String("target", "", "target user name")
+		cmd.Parse(os.Args[2:])
+
+		count, err := lib.CountPR(ctx, client, *owner, *targetName, *repo, *from, *to)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "%s: %v\n", os.Args[0], err)
+			os.Exit(1)
+		}
+
+		fmt.Println("PR counts: ", count)
 	case "diff":
 		cmd := flag.NewFlagSet("diff", flag.ExitOnError)
 		owner := cmd.String("owner", "", "owner name")
