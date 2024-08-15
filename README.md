@@ -37,3 +37,21 @@ Usage of count_pr:
   -target string
         target user name
 ```
+
+### count_review
+
+Count review number for repository
+
+```bash
+Usage of count_review:
+  -from string
+        from date
+  -owner string
+        owner name
+  -repo string
+        repository
+  -to string
+        to date
+  -target string
+        target user name
+```

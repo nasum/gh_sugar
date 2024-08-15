@@ -10,12 +10,12 @@ import (
 )
 
 func CountPR(ctx context.Context, client *github.Client, owner, targetName, repo, from, to string) (int, error) {
-	fromTime, err := ParseDateFromString(from)
+	fromTime, err := parseDateFromString(from)
 	if err != nil {
 		return 0, err
 	}
 
-	toTime, err := ParseDateFromString(to)
+	toTime, err := parseDateFromString(to)
 	if err != nil {
 		return 0, err
 	}
